@@ -1,0 +1,198 @@
+/* styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #021024;
+  --bg-secondary: #052659;
+  --mid-blue: #5483B3;
+  --soft-blue: #7DA0CA;
+  --accent: #C1E8FF;
+  --text-primary: #C1E8FF;
+  --text-secondary: #7DA0CA;
+  --glass: rgba(5, 38, 89, 0.6);
+  --glass-border: rgba(125, 160, 202, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--mid-blue);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--soft-blue);
+}
+
+/* Glass card base styles */
+.glass-card {
+  background: rgba(5, 38, 89, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(125, 160, 202, 0.2);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(193, 232, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(84, 131, 179, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #7DA0CA, #C1E8FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Input styles */
+.input-field {
+  background: rgba(5, 38, 89, 0.6);
+  border: 1px solid rgba(125, 160, 202, 0.3);
+  border-radius: 12px;
+  color: #C1E8FF;
+  padding: 10px 14px;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: rgba(193, 232, 255, 0.6);
+  box-shadow: 0 0 0 3px rgba(193, 232, 255, 0.1);
+}
+
+.input-field::placeholder {
+  color: rgba(125, 160, 202, 0.5);
+}
+
+.input-field option {
+  background: #052659;
+  color: #C1E8FF;
+}
+
+/* Button primary */
+.btn-primary {
+  background: linear-gradient(135deg, #5483B3, #7DA0CA);
+  color: #021024;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(84, 131, 179, 0.4);
+}
+
+/* Animated background gradient */
+.bg-animated {
+  background: linear-gradient(135deg, #021024 0%, #052659 50%, #021024 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Income/Expense badge */
+.badge-income {
+  background: rgba(75, 192, 192, 0.2);
+  color: #4BC0C0;
+  border: 1px solid rgba(75, 192, 192, 0.3);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-expense {
+  background: rgba(255, 99, 132, 0.2);
+  color: #FF6384;
+  border: 1px solid rgba(255, 99, 132, 0.3);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Sidebar active state */
+.sidebar-active {
+  background: linear-gradient(135deg, rgba(84, 131, 179, 0.3), rgba(125, 160, 202, 0.2));
+  border-left: 3px solid #C1E8FF;
+  color: #C1E8FF;
+}
+
+/* Pulse animation for totals */
+.pulse-border {
+  animation: pulseBorder 2s infinite;
+}
+
+@keyframes pulseBorder {
+  0%, 100% { border-color: rgba(125, 160, 202, 0.2); }
+  50% { border-color: rgba(193, 232, 255, 0.4); }
+}
+
+/* Chart container */
+.chart-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 16, 36, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Shimmer loading */
+.shimmer {
+  background: linear-gradient(90deg, rgba(5,38,89,0.3) 25%, rgba(84,131,179,0.1) 50%, rgba(5,38,89,0.3) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
